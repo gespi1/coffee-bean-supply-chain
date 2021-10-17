@@ -2,6 +2,7 @@ pragma solidity ^0.4.24;
 
 // Import the library 'Roles'
 import "./Roles.sol";
+import "../coffeecore/Ownable.sol";
 
 // Define a contract 'FarmerRole' to manage this role - add, remove, check
 contract FarmerRole {
@@ -21,7 +22,7 @@ contract FarmerRole {
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
   modifier onlyFarmer() {
-    require(isFarmer(msg.sender));
+    require(isFarmer(msg.sender), 'not valid farmer');
     _;
   }
 
